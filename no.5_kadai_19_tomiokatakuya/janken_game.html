@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="g">グー</button>
+  <!-- <div id="result1"></div> -->
+  <button id="c">チョキ</button>
+  <!-- <div id="result2"></div> -->
+  <button id="p">パー</button>
+  <button id="reload">もう一回勝負</button>
+  <div id="result1"></div>
+   <!-- <div id="result">おみくじの結果を表示</div> -->
+  <script>
+  var g = document.getElementById('g');
+  var c = document.getElementById('c');
+  var p = document.getElementById('p');
+  var rand = Math.floor(Math.random() * 3);
+  var gg = '<img src="images/gu-.png">';
+  var cc = '<img src="images/choki.png">';
+  var pp = '<img src="images/pa-.png">';
+  var result1 = document.getElementById('result1');
+  var result2 = document.getElementById('result2');
+  var result3 = document.getElementById('result3');
+  var reload = document.getElementById('reload');
+  // ぐーボタンを押した場合
+  g.addEventListener('click', function(){
+    if(rand == 0){
+      result1.innerHTML = gg + '<p>アイコです</p>';
+    }else if(rand == 1){
+      result1.innerHTML = cc + '<p>あなたの勝ちです</p>';
+    }else if(rand == 2){
+      result1.innerHTML = pp + '<p>あなたの負けです</p>';
+    };
+  });
+  // チョキボタンを押した場合
+  c.addEventListener('click', function(){
+    if(rand == 0){
+      result1.innerHTML = gg + '<p>あなたの負けです</p>';
+    }else if(rand == 1){
+      result1.innerHTML = cc + '<p>アイコです</p>';
+    }else if(rand == 2){
+      result1.innerHTML = pp + '<p>あなたの勝ちです</p>';
+    };
+  });
+  // パーボタンを押した場合
+  p.addEventListener('click', function(){
+    if(rand == 0){
+      result1.innerHTML = gg + '<p>あなたの勝ちです</p>';
+    }else if(rand == 1){
+      result1.innerHTML = cc + '<p>あなたの負けです</p>';
+    }else if(rand == 2){
+      result1.innerHTML = pp + '<p>アイコです</p>';
+    };
+  });
+  // 画面のリロード
+  reload.addEventListener('click', function(){
+    location.reload();
+  })
+  </script>
+</body>
+</html>
