@@ -55,7 +55,24 @@ public class WordDAO{
 		}
 		return result;
 	}
+	
+	//select 件数だけ
+	public int registWords(Word wd){
+		int result = 0;
+		try{	
+				String SQL = "INSERT INTO dictionary VALUES(?, ?)";
+				Class.forName("com.mysql.jdbc.Driver");
+				con = DriverManager.getConnection(URL, USER, PW);
 
+				//DB接続
+				if( con != null){
+					System.out.println("登録済み";)
+				}else{
+					System.out.println("DB接続失敗\r\n---");
+					return res;
+				}
+			
+			
 	public List<Word> getWords(){
 		List<Word> words = new ArrayList<>();
 		try{
