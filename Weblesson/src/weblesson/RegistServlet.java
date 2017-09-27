@@ -15,8 +15,7 @@ public class RegistServlet extends HttpServlet {
 
 			String english = req.getParameter("english");
 			String japanese = req.getParameter("japanese");
-			System.out.println(english);
-			System.out.println(japanese);
+			
 
 
 
