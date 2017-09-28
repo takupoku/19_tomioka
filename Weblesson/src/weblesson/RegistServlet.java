@@ -1,12 +1,14 @@
 package weblesson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 public class RegistServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res)
@@ -18,18 +20,25 @@ public class RegistServlet extends HttpServlet {
 			
 
 
+		ArrayList<Word> words = new ArrayList<>();
+		WordDAO dao = new WordDAO();
+		Word word1 = new Word(english,japanese);
+		words.add(word1);
+		int saveCount = dao.registWords(words);
 
 
-			Word wd = new Word(english, japanese);
-			WordDAO wdao = new WordDAO();
 
-			int count = wdao.registWords(wd);
-			req.setAttribute("count", count);
+		List<Word> wList = new ArrayList<>();
+		wList =dao.getWords();
 
-			HttpSession session = req.getSession(true);
-			session.setAttribute("english", english);
-			session.setAttribute("japanese", japanese);
-
-			req.getRequestDispatcher("result.jsp").forward(req, res);
+		int wordNum = 0;
+		for(Word tmp : wList){
+			System.out.println(tmp);
+			wordNum++;
 		}
+
+		req.setAttribute("registCount",saveCount);
+		req.setAttribute("wordsCount",wordNum);
+		req.getRequestDispatcher("result.jsp").forward(req,res);
+	}
 }
