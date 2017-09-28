@@ -18,11 +18,11 @@ public class Servlet02 extends HttpServlet{
 
 			//インスタンスつくる
 			NoteDAO dao = new NoteDAO();
-			List<Note> ar = new ArrayList<>();
-			ar = dao.getWords();
+			List<Word> words = new ArrayList<>();
+			words = dao.getWords();
 
 			//単語一覧
-			req.setAttribute("ar", ar);
+			req.setAttribute("words", words);
 
 			req.getRequestDispatcher("list.jsp").forward(req, res);
 
