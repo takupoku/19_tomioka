@@ -5,6 +5,7 @@
 <% String english = (String)session.getAttribute("english"); %>
 <% String japanese = (String)session.getAttribute("japanese"); %>
 <% int count = (int)request.getAttribute("registCount"); %>
+<% int wordsCount = (int)request.getAttribute("wordsCount"); %>
 
 <html>
 <head>
@@ -12,7 +13,7 @@
 <title>Result</title>
 </head>
 <body>
-	<p><%=count %>件登録しました。<p>
+	<p><%=wordsCount%>件登録しました。<p>
 	<p>英単語：<%=english %>を登録しました。</p>
 	<p>日本語：<%=japanese %>を登録しました。</p>
 	<p><a href="list">登録リスト</a></p>
