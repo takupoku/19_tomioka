@@ -13,9 +13,10 @@
 <title>Result</title>
 </head>
 <body>
-	<p><%=wordsCount%>件登録しました。<p>
+	 <p><%=count%>件、登録しました。</p>
 	<p>英単語：<%=english %>を登録しました。</p>
 	<p>日本語：<%=japanese %>を登録しました。</p>
 	<p><a href="list">登録リスト</a></p>
+	<p>登録件数は<%=wordsCount%>件です。</p>
 </body>
 </html>
